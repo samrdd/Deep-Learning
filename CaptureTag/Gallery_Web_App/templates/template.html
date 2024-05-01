@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+    <title>My Gallery</title>
+</head>
+
+<body>
+    <div id="loader" class="loader"></div>
+    <!-- Add this overlay element inside the body of your HTML -->
+    <div id="overlay" class="overlay"></div>
+    <div class="header">
+        <img src="https://imgs.search.brave.com/0eYQQ04pLapRcA6gdccD3bo9afq7oowTlCEhU5ViR9M/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9p/bWFnZS1pY29uLWZy/b250LXNpZGVfMTg3/Mjk5LTM5NDgwLmpw/Zz9zaXplPTYyNiZl/eHQ9anBn" alt="My Gallery" class="logo"> <!-- Replace with your logo -->
+        <h3 class="gallery-text">My Gallery</h3>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search photos">
+            <button id="searchButton"></button>
+        </div>
+
+    </div>
+    <div class="drag-container">
+
+    
+    <div  id="drop-area" ondrop="dropHandler(event)" ondragover="dragOverHandler(event)"
+        ondragleave="dragLeaveHandler(event)">
+        <p>Drag and drop a folder here or click to select</p>
+        <!-- You can add an image or other content here -->
+        <input type="file" id="file-input" name="folder" webkitdirectory directory multiple>
+
+    </div>
+</div>
+
+    <div class="gallery" id="imageGallery">
+        <!-- Images will be loaded here -->
+    </div>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+  <script src="../static/scripts.js"></script>
+</body>
+
+</html>

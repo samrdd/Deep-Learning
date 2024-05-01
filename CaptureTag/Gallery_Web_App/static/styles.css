@@ -1,0 +1,219 @@
+body {
+    margin: 0;
+    font-family: 'Google Sans', Roboto, Arial, sans-serif;
+    background-color: #fff;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* This will place the logo on the left and search-container on the right */
+    padding: 10px 20px;
+    /* Adjust this padding as necessary */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    z-index: 100;
+    margin-bottom: 30px;
+}
+
+.logo {
+    height: 40px;
+    /* Adjust as necessary */
+    margin-right: 10px;
+}
+
+.gallery-text {
+    font-size: 24px;
+    margin-right: auto;
+    /* This pushes the search-container to the right */
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.gallery {
+    column-count: 5;
+    column-gap: 8px;
+    padding: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    margin-bottom: 8px;
+    display: block;
+    border-radius: 8px;
+}
+
+input[type= "text"]{
+  border: 2px solid #7f7f7f;
+  /* White border for the input */
+  width:  300px;
+  height: max-content;
+  padding: 15px 10px;
+  /* Larger padding for a bigger search bar */
+  border-radius: 25px;
+  /* Rounded corners on the left side */
+  outline: none;
+}
+#searchButton {
+  width: 50px;
+  /* Circle diameter */
+  height: 50px;
+  /* Circle diameter */
+  /* border-radius: 20px 20px 20px 20px; */
+  /* Make it a circle */
+  border: 0px solid #7f7f7f;
+  /* White border to match the input */
+  background: url('./search.svg') no-repeat center center;
+  background-size: cover;
+  /* Or contain, depending on the aspect ratio of your image */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  padding: 0;
+  /* Remove padding if the image itself has padding/margins */
+}
+
+
+@media (max-width: 1200px) {
+    .gallery {
+        column-count: 4;
+    }
+}
+
+@media (max-width: 1000px) {
+    .gallery {
+        column-count: 3;
+    }
+}
+
+@media (max-width: 800px) {
+    .gallery {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery {
+        column-count: 1;
+    }
+}
+
+.timeline {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.date-section {
+    margin-bottom: 2em;
+}
+
+
+.date-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.images-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+
+.image-item {
+    flex: 1 1 200px;
+    /* flex-grow, flex-shrink, flex-basis */
+    max-width: calc(25% - 10px);
+    /* Adjust the percentage for the number of items per row */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.1);
+}
+/* Global Styles */
+/* Drop Area Styles */
+#drop-area {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#drop-area.dragover {
+  background-color: #f0f8ff; /* LightBlue */
+}
+
+/* Input Styles (Hidden) */
+#file-input {
+  display: none;
+}
+
+/* Additional Styles */
+p {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Add more styles as needed */
+.drag-container {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Add this styling to your CSS */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Semi-transparent black overlay */
+  z-index: 999; /* Ensure the overlay is below the loader */
+  display: none; /* Hide the overlay by default */
+}
+.loader {
+  border: 3px solid #f3f3f3; /* Light grey */
+  border-top: 3px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  display: none; /* Hide the loader by default */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 99;
+  margin-top: -40px;
+  margin-left: -40px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#loaderMessage {
+  width: auto;
+  height: 40px;
+  display: block;
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%); /* Center both horizontally and vertically */
+  z-index: 99;
+  margin: auto;
+}
